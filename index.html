@@ -1,274 +1,232 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s3 {font: 12.0px 'Lucida Grande'; font-kerning: none}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Love Gallery</title>
+ 
+<style>
+  body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    text-align:center;
+    color:#fff;
+    overflow-x:hidden;
+  }
+ 
+  header{ padding:50px 20px 10px; }
+  h1{ font-size:40px; margin:0 0 10px; }
+  p{ font-size:18px; margin:0; }
+ 
+  /* Music bar */
+  .music-bar{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    margin:18px auto 8px;
+    padding:10px 14px;
+    max-width:760px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .music-bar button{
+    border:0;
+    cursor:pointer;
+    padding:10px 14px;
+    border-radius:999px;
+    font-weight:700;
+    background: rgba(255,255,255,0.95);
+    color:#c2185b;
+  }
+  .music-bar button:active{ transform: scale(0.98); }
+  .music-bar .hint{ font-size:14px; opacity:0.95; }
+ 
+  /* Gallery */
+  .gallery{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:15px;
+    padding:30px;
+    max-width:1100px;
+    margin: 0 auto;
+  }
+  .gallery img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition: transform .25s ease;
+  }
+  .gallery img:hover{ transform: scale(1.04); }
+ 
+  /* Love letter section */
+  .letter{
+    max-width: 900px;
+    margin: 10px auto 40px;
+    padding: 20px;
+  }
+  .letter-card{
+    text-align:left;
+    color:#fff;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    backdrop-filter: blur(6px);
+  }
+  .letter-card h2{
+    margin: 0 0 12px;
+    font-size: 26px;
+  }
+  .letter-card p{
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .signature{
+    margin-top: 14px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+ 
+  footer{
+    padding: 16px 20px 34px;
+    font-size: 14px;
+    opacity: 0.95;
+  }
+ 
+  /* Falling hearts */
+  .heart{
+    position: fixed;
+    top: -10vh;
+    font-size: 18px;
+    pointer-events:none;
+    animation: fall linear forwards;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));
+    z-index: 9999;
+  }
+  @keyframes fall{
+    to{
+      transform: translateY(120vh) rotate(360deg);
+      opacity: 0.9;
+    }
+  }
+</style>
 </head>
+ 
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="UTF-8" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Our Love Gallery&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>body{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-family: Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-align:center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>overflow-x:hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>header{ padding:50px 20px 10px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>h1{ font-size:40px; margin:0 0 10px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>p{ font-size:18px; margin:0; }</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Music bar */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.music-bar{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap:10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>align-items:center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>justify-content:center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:18px auto 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:10px 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width:760px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.18);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: 1px solid rgba(255,255,255,0.22);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 999px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>backdrop-filter: blur(6px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.music-bar button{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cursor:pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:10px 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius:999px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight:700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.95);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#c2185b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.music-bar button:active{ transform: scale(0.98); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.music-bar .hint{ font-size:14px; opacity:0.95; }</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Gallery */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.gallery{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>display:grid;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gap:15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:30px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width:1100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.gallery img{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width:100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius:15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow:0 8px 20px rgba(0,0,0,0.3);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>transition: transform .25s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.gallery img:hover{ transform: scale(1.04); }</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Love letter section */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.letter{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 900px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 10px auto 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.letter-card{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>text-align:left;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:#fff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.16);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border: 1px solid rgba(255,255,255,0.22);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border-radius: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 22px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>box-shadow: 0 10px 25px rgba(0,0,0,0.18);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>backdrop-filter: blur(6px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.letter-card h2{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 0 0 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 26px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.letter-card p{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin: 10px 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>line-height: 1.6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.signature{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>footer{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding: 16px 20px 34px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 14px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>opacity: 0.95;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>/* Falling hearts */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.heart{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>position: fixed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>top: -10vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>pointer-events:none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>animation: fall linear forwards;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>z-index: 9999;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@keyframes fall{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>to{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transform: translateY(120vh) rotate(360deg);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>opacity: 0.9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;</span><span class="s2">💖</span><span class="s1"> Our Love Gallery </span><span class="s2">💖</span><span class="s1">&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Every picture tells our story.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="music-bar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button id="musicBtn"&gt;</span><span class="s3">▶</span><span class="s1"> Play Music&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="hint"&gt;Tip: browsers require a click to start music.&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;!-- Background music (put your file in /music and name it love.mp3) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;audio id="bgMusic" loop preload="auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;source src="music/love.mp3" type="audio/mpeg" /&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/audio&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">&lt;section class="gallery"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo1.jpg" alt="Memory 1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo2.jpg" alt="Memory 2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo3.jpg" alt="Memory 3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo4.jpg" alt="Memory 4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo5.jpg" alt="Memory 5"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo6.jpg" alt="Memory 6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo7.jpg" alt="Memory 7"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo8.jpg" alt="Memory 8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo9.jpg" alt="Memory 9"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo10.jpg" alt="Memory 10"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo11.jpg" alt="Memory 11"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo12.jpg" alt="Memory 12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo13.jpg" alt="Memory 13"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo14.jpg" alt="Memory 14"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo15.jpg" alt="Memory 15"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo16.jpg" alt="Memory 16"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo17.jpg" alt="Memory 17"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo18.jpg" alt="Memory 18"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo19.jpg" alt="Memory 19"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo20.jpg" alt="Memory 20"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo21.jpg" alt="Memory 21"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo22.jpg" alt="Memory 22"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo23.jpg" alt="Memory 23"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;img src="images/photo24.jpg" alt="Memory 24"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;section class="letter"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="letter-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;</span><span class="s2">💌</span><span class="s1"> A Love Letter&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;Hi Mahal,&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>I just want you to know how grateful I am for you. For the small moments,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>the big dreams, the laughter, and the calm you bring into my life.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>No matter what happens, I choose you — today, tomorrow, and always.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Thank you for being my favorite person and my safest place.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="signature"&gt;With all my love, </span><span class="s2">❤️</span><span class="s1">&lt;br/&gt;GLENNFORD&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Made with love </span><span class="s2">❤️</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// ===== Background Music (requires user click) =====</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const music = document.getElementById("bgMusic");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const btn = document.getElementById("musicBtn");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let playing = false;</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>btn.addEventListener("click", async () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>try{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if(!playing){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await music.play();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>playing = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>btn.textContent = "</span><span class="s2">⏸</span><span class="s1"> Pause Music";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}else{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>music.pause();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>playing = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>btn.textContent = "</span><span class="s3">▶</span><span class="s1"> Play Music";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}catch(e){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert("Music couldn't start. Make sure music/love.mp3 exists, then click again.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// ===== Falling Hearts =====</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const HEARTS = ["</span><span class="s2">💗</span><span class="s1">","</span><span class="s2">💕</span><span class="s1">","</span><span class="s2">💖</span><span class="s1">","</span><span class="s2">💘</span><span class="s1">","</span><span class="s2">💞</span><span class="s1">","</span><span class="s2">🌹</span><span class="s1">"];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>function spawnHeart(){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const el = document.createElement("div");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.className = "heart";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.textContent = HEARTS[Math.floor(Math.random()*HEARTS.length)];</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Random position + size + speed</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const left = Math.random() * 100; // vw</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const size = 14 + Math.random() * 18; // px</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const duration = 4 + Math.random() * 5; // seconds</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.style.left = left + "vw";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.style.fontSize = size + "px";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.style.animationDuration = duration + "s";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.style.opacity = (0.75 + Math.random()*0.25).toFixed(2);</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.body.appendChild(el);</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Cleanup</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; el.remove(), (duration + 0.5) * 1000);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// Spawn rate</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>setInterval(spawnHeart, 250);</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+  <header>
+    <h1>💖 Our Love Gallery 💖</h1>
+    <p>Every picture tells our story.</p>
+ 
+    <div class="music-bar">
+      <button id="musicBtn">▶ Play Music</button>
+      <div class="hint">Tip: browsers require a click to start music.</div>
+    </div>
+  </header>
+ 
+  <!-- Background music (put your file in /music and name it love.mp3) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music/love.mp3" type="audio/mpeg" />
+  </audio>
+ 
+<section class="gallery">
+    <img src="images/photo1.jpg" alt="Memory 1">
+    <img src="images/photo2.jpg" alt="Memory 2">
+    <img src="images/photo3.jpg" alt="Memory 3">
+    <img src="images/photo4.jpg" alt="Memory 4">
+    <img src="images/photo5.jpg" alt="Memory 5">
+    <img src="images/photo6.jpg" alt="Memory 6">
+    <img src="images/photo7.jpg" alt="Memory 7">
+    <img src="images/photo8.jpg" alt="Memory 8">
+    <img src="images/photo9.jpg" alt="Memory 9">
+    <img src="images/photo10.jpg" alt="Memory 10">
+    <img src="images/photo11.jpg" alt="Memory 11">
+    <img src="images/photo12.jpg" alt="Memory 12">
+    <img src="images/photo13.jpg" alt="Memory 13">
+    <img src="images/photo14.jpg" alt="Memory 14">
+    <img src="images/photo15.jpg" alt="Memory 15">
+    <img src="images/photo16.jpg" alt="Memory 16">
+    <img src="images/photo17.jpg" alt="Memory 17">
+    <img src="images/photo18.jpg" alt="Memory 18">
+    <img src="images/photo19.jpg" alt="Memory 19">
+    <img src="images/photo20.jpg" alt="Memory 20">
+    <img src="images/photo21.jpg" alt="Memory 21">
+    <img src="images/photo22.jpg" alt="Memory 22">
+    <img src="images/photo23.jpg" alt="Memory 23">
+    <img src="images/photo24.jpg" alt="Memory 24">
+</section> 
+  <section class="letter">
+    <div class="letter-card">
+      <h2>💌 A Love Letter</h2>
+      <p>Hi Mahal,</p>
+      <p>
+        I just want you to know how grateful I am for you. For the small moments,
+        the big dreams, the laughter, and the calm you bring into my life.
+      </p>
+      <p>
+        No matter what happens, I choose you — today, tomorrow, and always.
+        Thank you for being my favorite person and my safest place.
+      </p>
+      <p class="signature">With all my love, ❤️<br/>GLENNFORD</p>
+    </div>
+  </section>
+ 
+  <footer>
+    Made with love ❤️
+  </footer>
+ 
+<script>
+  // ===== Background Music (requires user click) =====
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicBtn");
+  let playing = false;
+ 
+  btn.addEventListener("click", async () => {
+    try{
+      if(!playing){
+        await music.play();
+        playing = true;
+        btn.textContent = "⏸ Pause Music";
+      }else{
+        music.pause();
+        playing = false;
+        btn.textContent = "▶ Play Music";
+      }
+    }catch(e){
+      alert("Music couldn't start. Make sure music/love.mp3 exists, then click again.");
+    }
+  });
+ 
+  // ===== Falling Hearts =====
+  const HEARTS = ["💗","💕","💖","💘","💞","🌹"];
+  function spawnHeart(){
+    const el = document.createElement("div");
+    el.className = "heart";
+    el.textContent = HEARTS[Math.floor(Math.random()*HEARTS.length)];
+ 
+    // Random position + size + speed
+    const left = Math.random() * 100; // vw
+    const size = 14 + Math.random() * 18; // px
+    const duration = 4 + Math.random() * 5; // seconds
+ 
+    el.style.left = left + "vw";
+    el.style.fontSize = size + "px";
+    el.style.animationDuration = duration + "s";
+    el.style.opacity = (0.75 + Math.random()*0.25).toFixed(2);
+ 
+    document.body.appendChild(el);
+ 
+    // Cleanup
+    setTimeout(() => el.remove(), (duration + 0.5) * 1000);
+  }
+ 
+  // Spawn rate
+  setInterval(spawnHeart, 250);
+</script>
 </body>
 </html>
